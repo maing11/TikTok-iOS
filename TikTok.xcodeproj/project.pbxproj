@@ -23,12 +23,13 @@
 		CAB91BB026AE4597000EA046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BAF26AE4597000EA046 /* SettingsViewController.swift */; };
 		CAB91BB226AE45C5000EA046 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BB126AE45C5000EA046 /* TabBarViewController.swift */; };
 		CAB91BB626AE45FE000EA046 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BB526AE45FE000EA046 /* PostViewController.swift */; };
-		CAB91BB826AE4642000EA046 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BB726AE4642000EA046 /* APICaller.swift */; };
 		CAB91BBA26AE464F000EA046 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BB926AE464F000EA046 /* StorageManager.swift */; };
 		CAB91BBC26AE465B000EA046 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BBB26AE465B000EA046 /* DatabaseManager.swift */; };
 		CAB91BBE26AE4668000EA046 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BBD26AE4668000EA046 /* AuthenticationManager.swift */; };
 		CAB91BC026AE4678000EA046 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BBF26AE4678000EA046 /* HapticsManager.swift */; };
 		CAB91BC226AE5225000EA046 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAB91BC126AE5225000EA046 /* GoogleService-Info.plist */; };
+		CAB91BC626AF4B2C000EA046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BC526AF4B2C000EA046 /* Extensions.swift */; };
+		CAB91BC826AF63F8000EA046 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BC726AF63F8000EA046 /* PostModel.swift */; };
 		F509BC51C432D5D7D36E04AE /* Pods_TikTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857DC02ECC9F9ABC1321A16E /* Pods_TikTok.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,12 +55,13 @@
 		CAB91BAF26AE4597000EA046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CAB91BB126AE45C5000EA046 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CAB91BB526AE45FE000EA046 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		CAB91BB726AE4642000EA046 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		CAB91BB926AE464F000EA046 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		CAB91BBB26AE465B000EA046 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		CAB91BBD26AE4668000EA046 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		CAB91BBF26AE4678000EA046 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		CAB91BC126AE5225000EA046 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CAB91BC526AF4B2C000EA046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CAB91BC726AF63F8000EA046 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +130,6 @@
 		CAB91B9326AE3EE0000EA046 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CAB91BB726AE4642000EA046 /* APICaller.swift */,
 				CAB91BB926AE464F000EA046 /* StorageManager.swift */,
 				CAB91BBB26AE465B000EA046 /* DatabaseManager.swift */,
 				CAB91BBD26AE4668000EA046 /* AuthenticationManager.swift */,
@@ -140,6 +141,7 @@
 		CAB91B9426AE3EE9000EA046 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CAB91BC726AF63F8000EA046 /* PostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +167,7 @@
 				CAB91B8826AE3ED6000EA046 /* Assets.xcassets */,
 				CAB91B7F26AE3ED4000EA046 /* AppDelegate.swift */,
 				CAB91B8126AE3ED4000EA046 /* SceneDelegate.swift */,
+				CAB91BC526AF4B2C000EA046 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 		CAB91B9C26AE44DB000EA046 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CAB91BC426AF49A6000EA046 /* New Group */,
 				CAB91B9E26AE44F9000EA046 /* Other */,
 				CAB91B9D26AE44F4000EA046 /* Core */,
 			);
@@ -201,6 +205,13 @@
 				CAB91BB526AE45FE000EA046 /* PostViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		CAB91BC426AF49A6000EA046 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,11 +348,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAB91BC026AE4678000EA046 /* HapticsManager.swift in Sources */,
+				CAB91BC626AF4B2C000EA046 /* Extensions.swift in Sources */,
 				CAB91BBC26AE465B000EA046 /* DatabaseManager.swift in Sources */,
 				CAB91BA026AE450E000EA046 /* ExploreViewController.swift in Sources */,
 				CAB91BAA26AE4574000EA046 /* UserListViewController.swift in Sources */,
 				CAB91BB026AE4597000EA046 /* SettingsViewController.swift in Sources */,
-				CAB91BB826AE4642000EA046 /* APICaller.swift in Sources */,
 				CAB91BB626AE45FE000EA046 /* PostViewController.swift in Sources */,
 				CAB91BA226AE451A000EA046 /* CameraViewController.swift in Sources */,
 				CAB91BB226AE45C5000EA046 /* TabBarViewController.swift in Sources */,
@@ -350,6 +361,7 @@
 				CAB91BBE26AE4668000EA046 /* AuthenticationManager.swift in Sources */,
 				CAB91BA626AE4542000EA046 /* NotificationsViewController.swift in Sources */,
 				CAB91BAC26AE457F000EA046 /* SignInViewController.swift in Sources */,
+				CAB91BC826AF63F8000EA046 /* PostModel.swift in Sources */,
 				CAB91BA826AE4564000EA046 /* ProfileViewController.swift in Sources */,
 				CAB91BBA26AE464F000EA046 /* StorageManager.swift in Sources */,
 				CAB91B8226AE3ED4000EA046 /* SceneDelegate.swift in Sources */,
