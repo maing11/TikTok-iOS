@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol  PostViewControllerDelegate: AnyObject {
+    func postViewController(_ vc: PostViewController,didTapCommentButtonFor post: PostModel )
+}
+
 class PostViewController: UIViewController {
      var model: PostModel
+    weak var delegate: PostViewControllerDelegate?
+    
     
     private let likeButton: UIButton = {
         let button = UIButton()
@@ -82,16 +88,20 @@ class PostViewController: UIViewController {
         shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
 
     }
+    
     @objc private func didTapLike() {
         model.isLikedByCurrentUser = !model.isLikedByCurrentUser
         
         likeButton.tintColor = model.isLikedByCurrentUser ? .systemRed :.white
     }
+    
     @objc private func didTapComment() {
+        delegate?.postViewController(self, didTapCommentButtonFor: model)
+                
+       
+        }
         
-        //Present commeng tray
-        
-    }
+    
     @objc private func didTapShare() {
         guard let url = URL(string: "https://www.tiktok.com") else {return}
         
