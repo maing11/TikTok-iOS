@@ -22,7 +22,7 @@ class CommentsViewController: UIViewController, UITableViewDelegate {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: CommentTableViewCell.identifier)
         
         return tableView
     }()
@@ -62,7 +62,7 @@ class CommentsViewController: UIViewController, UITableViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         closeButton.frame = CGRect(x: view.width - 60 , y: 10, width: 30, height: 30)
-        
+    
         tableView.frame = CGRect(x: 0,
                                  y: closeButton.bottom,
                                  width: view.width,
@@ -89,11 +89,21 @@ extension CommentsViewController: UITabBarDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.identifier, for: indexPath) as? CommentTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: comment)
         
-        cell.textLabel?.text = comment.text
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }

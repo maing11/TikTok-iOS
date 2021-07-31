@@ -32,3 +32,22 @@ extension UIView {
     }
     
 }
+
+extension DateFormatter {
+    static let defaultFormatter: DateFormatter = {
+        let formater = DateFormatter()
+        formater.timeZone = .current
+        formater.locale = .current
+        formater.dateStyle = .medium
+        formater.timeStyle = .short
+        return formater
+        
+    }()
+}
+
+
+extension String {
+    static func date(with date: Date) -> String {
+        return DateFormatter.defaultFormatter.string(from: date)
+    }
+}

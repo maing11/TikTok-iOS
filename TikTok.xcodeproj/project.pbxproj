@@ -10,6 +10,7 @@
 		CAAE5F2026B0F65C0041D9CB /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F1F26B0F65C0041D9CB /* CommentsViewController.swift */; };
 		CAAE5F2226B11CEE0041D9CB /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F2126B11CEE0041D9CB /* PostComment.swift */; };
 		CAAE5F2426B11DD70041D9CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F2326B11DD70041D9CB /* User.swift */; };
+		CAAE5F2626B4D2120041D9CB /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F2526B4D2120041D9CB /* CommentTableViewCell.swift */; };
 		CAB91B8026AE3ED4000EA046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91B7F26AE3ED4000EA046 /* AppDelegate.swift */; };
 		CAB91B8226AE3ED4000EA046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91B8126AE3ED4000EA046 /* SceneDelegate.swift */; };
 		CAB91B8726AE3ED4000EA046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB91B8526AE3ED4000EA046 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		CAAE5F1F26B0F65C0041D9CB /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		CAAE5F2126B11CEE0041D9CB /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		CAAE5F2326B11DD70041D9CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CAAE5F2526B4D2120041D9CB /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		CAB91B7C26AE3ED4000EA046 /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB91B7F26AE3ED4000EA046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB91B8126AE3ED4000EA046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		CAB91B9526AE3EF0000EA046 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CAAE5F2526B4D2120041D9CB /* CommentTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				CAB91BC026AE4678000EA046 /* HapticsManager.swift in Sources */,
 				CAAE5F2026B0F65C0041D9CB /* CommentsViewController.swift in Sources */,
 				CAB91BC626AF4B2C000EA046 /* Extensions.swift in Sources */,
+				CAAE5F2626B4D2120041D9CB /* CommentTableViewCell.swift in Sources */,
 				CAB91BBC26AE465B000EA046 /* DatabaseManager.swift in Sources */,
 				CAB91BA026AE450E000EA046 /* ExploreViewController.swift in Sources */,
 				CAB91BAA26AE4574000EA046 /* UserListViewController.swift in Sources */,
