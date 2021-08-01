@@ -208,6 +208,13 @@ extension HomeViewController: PostViewControllerDelegate {
             vc.view.frame = CGRect(x: 0, y: self.view.height - frame.height, width: frame.width, height: frame.height)
         }
     }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel){
+        let user = post.user
+        let vc = ProfileViewController(user: user)
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }
 
 
@@ -237,3 +244,5 @@ extension HomeViewController: CommentsViewControllerDelegate {
         }
     } 
 }
+
+

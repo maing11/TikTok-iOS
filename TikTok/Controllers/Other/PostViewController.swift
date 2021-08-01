@@ -9,6 +9,7 @@ import UIKit
 
 protocol  PostViewControllerDelegate: AnyObject {
     func postViewController(_ vc: PostViewController,didTapCommentButtonFor post: PostModel )
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor Post: PostModel)
 }
 
 class PostViewController: UIViewController {
@@ -33,12 +34,24 @@ class PostViewController: UIViewController {
         
         return button
     }()
+    
     private let shareButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         button.tintColor = .white
         button.imageView?.contentMode = .scaleAspectFit
 
+        
+        return button
+    }()
+    
+    
+    private let profileButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "Test"), for: .normal)
+        button.tintColor = .white
+        button.layer.masksToBounds = true
+        button.imageView?.contentMode = .scaleAspectFill
         
         return button
     }()
@@ -76,6 +89,8 @@ class PostViewController: UIViewController {
         setUpButtons()
         setUpDoubleTapToLike()
         view.addSubview(captionLabel)
+        view.addSubview(profileButton)
+        profileButton.addTarget(self, action: #selector(didTapProfileButton), for: .touchUpInside)
     }
     
     func setUpButtons() {
@@ -87,6 +102,11 @@ class PostViewController: UIViewController {
         commentButton.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
 
+    }
+    
+    @objc func didTapProfileButton() {
+        delegate?.postViewController(self, didTapProfileButtonFor: model)
+        
     }
     
     @objc private func didTapLike() {
@@ -128,6 +148,14 @@ class PostViewController: UIViewController {
                                     y: view.height - 10 - view.safeAreaInsets.bottom - labelSize.height - (tabBarController?.tabBar.height ?? 0 ),
                                     width: view.width - size - 12,
                                     height: labelSize.height)
+        
+        
+        profileButton.frame = CGRect(x: likeButton.left,
+                                     y: likeButton.top - 10 - size,
+                                     width: size,
+                                     height:size)
+        
+        profileButton.layer.cornerRadius = size/2
     }
     
     func setUpDoubleTapToLike() {
