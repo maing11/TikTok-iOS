@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = user.username.uppercased()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
 
     }
     
