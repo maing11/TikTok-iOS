@@ -73,6 +73,7 @@ class PostViewController: UIViewController {
     }()
     
     var player: AVPlayer?
+    private var playerDidFinishObserver: NSObjectProtocol?
     
     
     // MARK: - Init
@@ -156,19 +157,32 @@ class PostViewController: UIViewController {
         let url = URL(fileURLWithPath: path)
         player = AVPlayer(url: url)
 
-            let playerlayer = AVPlayerLayer(player: player)
+            var playerlayer = AVPlayerLayer(player: player)
 
             playerlayer.frame = view.bounds
             playerlayer.videoGravity = .resizeAspectFill
             view.layer.addSublayer(playerlayer)
-        player?.volume = 0
+            player?.volume = 0
             player?.play()
 
-            let playerViewController = AVPlayerViewController()
+//            let playerViewController = AVPlayerViewController()
 //            playerViewController.player = player
-            self.present(playerViewController, animated: true) {
-               playerViewController.player!.play()
-           }
+//            self.present(playerViewController, animated: true) {
+//               playerViewController.player!.play()
+//            }
+            
+                guard let player = self.player else {
+                    return
+                }
+                playerDidFinishObserver = NotificationCenter.default.addObserver(
+                    forName: .AVPlayerItemDidPlayToEndTime,
+                    object: player.currentItem,
+                    queue: .main)
+                   { _ in
+                    player.seek(to: .zero)
+                    player.play()
+                    }
+        
        }
 
     @objc func didTapProfileButton() {
