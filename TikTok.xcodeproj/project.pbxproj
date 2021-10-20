@@ -11,6 +11,7 @@
 		CAAE5F2226B11CEE0041D9CB /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F2126B11CEE0041D9CB /* PostComment.swift */; };
 		CAAE5F2426B11DD70041D9CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F2326B11DD70041D9CB /* User.swift */; };
 		CAAE5F2626B4D2120041D9CB /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE5F2526B4D2120041D9CB /* CommentTableViewCell.swift */; };
+		CAAE5F2A26B769E00041D9CB /* cocacola.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CAAE5F2926B769E00041D9CB /* cocacola.mp4 */; };
 		CAB91B8026AE3ED4000EA046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91B7F26AE3ED4000EA046 /* AppDelegate.swift */; };
 		CAB91B8226AE3ED4000EA046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91B8126AE3ED4000EA046 /* SceneDelegate.swift */; };
 		CAB91B8726AE3ED4000EA046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB91B8526AE3ED4000EA046 /* Main.storyboard */; };
@@ -34,6 +35,13 @@
 		CAB91BC226AE5225000EA046 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAB91BC126AE5225000EA046 /* GoogleService-Info.plist */; };
 		CAB91BC626AF4B2C000EA046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BC526AF4B2C000EA046 /* Extensions.swift */; };
 		CAB91BC826AF63F8000EA046 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB91BC726AF63F8000EA046 /* PostModel.swift */; };
+		CAE6AC4D271E322700DF478C /* ExploreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC4C271E322700DF478C /* ExploreSection.swift */; };
+		CAE6AC4F271E323200DF478C /* ExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC4E271E323200DF478C /* ExploreCell.swift */; };
+		CAE6AC51271E324300DF478C /* ExploreSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC50271E324300DF478C /* ExploreSectionType.swift */; };
+		CAE6AC53271E34FD00DF478C /* ExploreBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC52271E34FD00DF478C /* ExploreBannerViewModel.swift */; };
+		CAE6AC55271E351000DF478C /* ExplorePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC54271E351000DF478C /* ExplorePostViewModel.swift */; };
+		CAE6AC57271E351A00DF478C /* ExploreHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC56271E351A00DF478C /* ExploreHashtagViewModel.swift */; };
+		CAE6AC59271E354E00DF478C /* ExploreUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AC58271E354E00DF478C /* ExploreUserViewModel.swift */; };
 		F509BC51C432D5D7D36E04AE /* Pods_TikTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857DC02ECC9F9ABC1321A16E /* Pods_TikTok.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +53,7 @@
 		CAAE5F2126B11CEE0041D9CB /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		CAAE5F2326B11DD70041D9CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CAAE5F2526B4D2120041D9CB /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		CAAE5F2926B769E00041D9CB /* cocacola.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cocacola.mp4; sourceTree = "<group>"; };
 		CAB91B7C26AE3ED4000EA046 /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB91B7F26AE3ED4000EA046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB91B8126AE3ED4000EA046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +79,13 @@
 		CAB91BC126AE5225000EA046 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAB91BC526AF4B2C000EA046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CAB91BC726AF63F8000EA046 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		CAE6AC4C271E322700DF478C /* ExploreSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSection.swift; sourceTree = "<group>"; };
+		CAE6AC4E271E323200DF478C /* ExploreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCell.swift; sourceTree = "<group>"; };
+		CAE6AC50271E324300DF478C /* ExploreSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSectionType.swift; sourceTree = "<group>"; };
+		CAE6AC52271E34FD00DF478C /* ExploreBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBannerViewModel.swift; sourceTree = "<group>"; };
+		CAE6AC54271E351000DF478C /* ExplorePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePostViewModel.swift; sourceTree = "<group>"; };
+		CAE6AC56271E351A00DF478C /* ExploreHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHashtagViewModel.swift; sourceTree = "<group>"; };
+		CAE6AC58271E354E00DF478C /* ExploreUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +168,9 @@
 				CAB91BC726AF63F8000EA046 /* PostModel.swift */,
 				CAAE5F2126B11CEE0041D9CB /* PostComment.swift */,
 				CAAE5F2326B11DD70041D9CB /* User.swift */,
+				CAE6AC4C271E322700DF478C /* ExploreSection.swift */,
+				CAE6AC4E271E323200DF478C /* ExploreCell.swift */,
+				CAE6AC50271E324300DF478C /* ExploreSectionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +186,10 @@
 		CAB91B9626AE3EF5000EA046 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CAE6AC52271E34FD00DF478C /* ExploreBannerViewModel.swift */,
+				CAE6AC54271E351000DF478C /* ExplorePostViewModel.swift */,
+				CAE6AC56271E351A00DF478C /* ExploreHashtagViewModel.swift */,
+				CAE6AC58271E354E00DF478C /* ExploreUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,6 +199,7 @@
 			children = (
 				CAB91BC126AE5225000EA046 /* GoogleService-Info.plist */,
 				CAB91B8826AE3ED6000EA046 /* Assets.xcassets */,
+				CAAE5F2926B769E00041D9CB /* cocacola.mp4 */,
 				CAB91B7F26AE3ED4000EA046 /* AppDelegate.swift */,
 				CAB91B8126AE3ED4000EA046 /* SceneDelegate.swift */,
 				CAB91BC526AF4B2C000EA046 /* Extensions.swift */,
@@ -287,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAB91B8C26AE3ED6000EA046 /* LaunchScreen.storyboard in Resources */,
+				CAAE5F2A26B769E00041D9CB /* cocacola.mp4 in Resources */,
 				CAB91BC226AE5225000EA046 /* GoogleService-Info.plist in Resources */,
 				CAB91B8926AE3ED6000EA046 /* Assets.xcassets in Resources */,
 				CAB91B8726AE3ED4000EA046 /* Main.storyboard in Resources */,
@@ -362,13 +387,19 @@
 				CAB91BC026AE4678000EA046 /* HapticsManager.swift in Sources */,
 				CAAE5F2026B0F65C0041D9CB /* CommentsViewController.swift in Sources */,
 				CAB91BC626AF4B2C000EA046 /* Extensions.swift in Sources */,
+				CAE6AC4D271E322700DF478C /* ExploreSection.swift in Sources */,
 				CAAE5F2626B4D2120041D9CB /* CommentTableViewCell.swift in Sources */,
 				CAB91BBC26AE465B000EA046 /* DatabaseManager.swift in Sources */,
 				CAB91BA026AE450E000EA046 /* ExploreViewController.swift in Sources */,
+				CAE6AC57271E351A00DF478C /* ExploreHashtagViewModel.swift in Sources */,
 				CAB91BAA26AE4574000EA046 /* UserListViewController.swift in Sources */,
 				CAB91BB026AE4597000EA046 /* SettingsViewController.swift in Sources */,
 				CAB91BB626AE45FE000EA046 /* PostViewController.swift in Sources */,
+				CAE6AC55271E351000DF478C /* ExplorePostViewModel.swift in Sources */,
+				CAE6AC4F271E323200DF478C /* ExploreCell.swift in Sources */,
 				CAB91BA226AE451A000EA046 /* CameraViewController.swift in Sources */,
+				CAE6AC53271E34FD00DF478C /* ExploreBannerViewModel.swift in Sources */,
+				CAE6AC59271E354E00DF478C /* ExploreUserViewModel.swift in Sources */,
 				CAB91BB226AE45C5000EA046 /* TabBarViewController.swift in Sources */,
 				CAAE5F2426B11DD70041D9CB /* User.swift in Sources */,
 				CAB91B8026AE3ED4000EA046 /* AppDelegate.swift in Sources */,
@@ -382,6 +413,7 @@
 				CAB91BBA26AE464F000EA046 /* StorageManager.swift in Sources */,
 				CAB91B8226AE3ED4000EA046 /* SceneDelegate.swift in Sources */,
 				CAB91B9B26AE3F4F000EA046 /* HomeViewController.swift in Sources */,
+				CAE6AC51271E324300DF478C /* ExploreSectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

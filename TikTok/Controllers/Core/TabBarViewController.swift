@@ -28,8 +28,8 @@ class TabBarViewController: UITabBarController {
                                                        profilePictureURL: nil,
                                                        identifier: "abc123"))
         
-        home.title = "Home"
-        explore.title = "Explore"
+//        home.title = "Home"
+//        explore.title = "Explore"
         notifications.title = "Notification"
         profile.title = "Profile"
         

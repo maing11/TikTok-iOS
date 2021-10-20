@@ -37,6 +37,7 @@ class PostViewController: UIViewController {
         button.setBackgroundImage(UIImage(systemName: "text.bubble.fill"), for: .normal)
         button.tintColor = .white
         button.imageView?.contentMode = .scaleAspectFit
+        
         return button
     }()
     
@@ -46,7 +47,6 @@ class PostViewController: UIViewController {
         button.tintColor = .white
         button.imageView?.contentMode = .scaleAspectFit
 
-        
         return button
     }()
     
@@ -73,6 +73,7 @@ class PostViewController: UIViewController {
     }()
     
     var player: AVPlayer?
+    private var playerDidFinishObserver: NSObjectProtocol?
     
     
     // MARK: - Init
@@ -95,10 +96,10 @@ class PostViewController: UIViewController {
         
         setUpButtons()
         setUpDoubleTapToLike()
-        
         view.addSubview(captionLabel)
         view.addSubview(profileButton)
         profileButton.addTarget(self, action: #selector(didTapProfileButton), for: .touchUpInside)
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -116,6 +117,7 @@ class PostViewController: UIViewController {
         captionLabel.sizeToFit()
         
         let labelSize = captionLabel.sizeThatFits(CGSize(width: view.width - size - 12, height: view.height))
+        
         captionLabel.frame = CGRect(x: 5,
                                     y: view.height - 10 - view.safeAreaInsets.bottom - labelSize.height - (tabBarController?.tabBar.height ?? 0 ),
                                     width: view.width - size - 12,
@@ -132,7 +134,6 @@ class PostViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configureVideo()
     }
     
     
@@ -156,19 +157,32 @@ class PostViewController: UIViewController {
         let url = URL(fileURLWithPath: path)
         player = AVPlayer(url: url)
 
-            let playerlayer = AVPlayerLayer(player: player)
+            var playerlayer = AVPlayerLayer(player: player)
 
-            playerlayer.frame = view.bounds
+        playerlayer.frame = view.bounds
             playerlayer.videoGravity = .resizeAspectFill
             view.layer.addSublayer(playerlayer)
-        player?.volume = 0
+            player?.volume = 0
             player?.play()
-
-            let playerViewController = AVPlayerViewController()
+//        playerLayer.frame = CGRect(x: 0, y: descriptionLabel.bounds.maxY, width: 300, height: 300)
+//            let playerViewController = AVPlayerViewController()
 //            playerViewController.player = player
-            self.present(playerViewController, animated: true) {
-               playerViewController.player!.play()
-           }
+//            self.present(playerViewController, animated: true) {
+//               playerViewController.player!.play()
+//            }
+            
+                guard let player = self.player else {
+                    return
+                }
+                playerDidFinishObserver = NotificationCenter.default.addObserver(
+                    forName: .AVPlayerItemDidPlayToEndTime,
+                    object: player.currentItem,
+                    queue: .main)
+                   { _ in
+                    player.seek(to: .zero)
+                    player.play()
+                    }
+        
        }
 
     @objc func didTapProfileButton() {
