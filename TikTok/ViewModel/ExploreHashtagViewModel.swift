@@ -14,4 +14,5 @@ struct ExploreHashtagViewModel {
     let text: String
     let icon: UIImage?
     let count: Int //numer of post associated with tag
+    let handler:(() -> Void)
 }
