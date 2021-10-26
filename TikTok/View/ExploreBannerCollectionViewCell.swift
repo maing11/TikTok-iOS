@@ -49,6 +49,7 @@ class ExploreBannerCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        //Reset everything to prepare the view for use again.
         super.prepareForReuse()
         imageView.image = nil
         label.text = nil

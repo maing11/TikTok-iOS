@@ -129,6 +129,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CA89C7F92727C53700CFE84E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CAB91BAD26AE458C000EA046 /* SignUpViewController.swift */,
+				CAB91BAB26AE457E000EA046 /* SignInViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		CAA7DC5827235D8900D6FB50 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,9 +268,8 @@
 		CAB91B9E26AE44F9000EA046 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				CA89C7F92727C53700CFE84E /* Authentication */,
 				CAB91BA926AE4574000EA046 /* UserListViewController.swift */,
-				CAB91BAB26AE457E000EA046 /* SignInViewController.swift */,
-				CAB91BAD26AE458C000EA046 /* SignUpViewController.swift */,
 				CAB91BAF26AE4597000EA046 /* SettingsViewController.swift */,
 				CAB91BB526AE45FE000EA046 /* PostViewController.swift */,
 				CAAE5F1F26B0F65C0041D9CB /* CommentsViewController.swift */,
