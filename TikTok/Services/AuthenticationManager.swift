@@ -27,9 +27,15 @@ final class AuthManager {
         return Auth.auth().currentUser != nil
     }
     
-    // Public
     
     public func signIn(with email: String, password: String, completion: @escaping (Bool) -> Void) {
+        
+    }
+    
+    public func signUp(with username: String,
+                       emailAdress: String,
+                       password: String,
+                       completion:@escaping(Bool) -> Void) {
         
     }
     
