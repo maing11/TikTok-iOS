@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         FirebaseApp.configure()
+        AuthManager.shared.signOut { _ in
+            
+        }
         
         // Override point for customization after application launch.
         return true
