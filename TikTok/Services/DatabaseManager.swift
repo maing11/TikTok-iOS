@@ -24,18 +24,24 @@ final class DatabaseManager {
         // insert new entry
         // create root users
         
-        database.child("users").observeSingleEvent(of: .value) {[weak self] snapshot in
-            guard var userDictionary = snapshot.value as?  [String: Any] else {
+//        database.child(username).setValue(["email": email]) { error, _ in
+//            guard let error == nil else {
+//                completion(false)
+//                return
+//            }
+//            completion(true)
+//        }
+        database.child("users").observeSingleEvent(of: .value) { [weak self] snapshot in
+//            print(snapshot.value)
+            guard var usersDictionary = snapshot.value as? [String: Any] else {
                 // create users root node
                 self?.database.child("users").setValue(
                     [
-                        username: [
-                            "email": email
-                        ]
+                        username:[
+                     "email": email
                     ]
-                    
-                
-                ){ error, _ in
+                  ]
+                ) {error,_ in
                     guard error == nil else {
                         completion(false)
                         return
@@ -44,25 +50,25 @@ final class DatabaseManager {
                 }
                 return
             }
-//            userDictionary[username] = ["email: email"]
-//            // save new users object
-//            self?.database.child("users").setValue(userDictionary,withCompletionBlock: { error, _ in
-//                guard error == nil else {
-//                    completion(false)
-//                    return
-//                }
-//                completion(true)
-//            })
-        }
-//
-        database.child(username).setValue(["email": email]) {error,_ in
-            guard error == nil else {
-                completion(false)
-                return
-            }
+            usersDictionary[username] = ["email":email]
+            //save new users object
+            self?.database.child("users").setValue(usersDictionary, withCompletionBlock: { error, _ in
+                guard  error == nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            })
         }
     }
-    
+//  database.child(username).setValue(["email": email]) {error,_ in
+//            guard error == nil else {
+//                completion(false)
+//                return
+//            }
+//        }
+//    }
+//
     public func getAllUsers(completion: ([String]) -> Void) {
         
     }
