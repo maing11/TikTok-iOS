@@ -32,15 +32,16 @@ class TabBarViewController: UITabBarController {
         if !AuthManager.shared.isSignedIn{
             signInPresented = true
             let vc = SignInViewController()
-
-            // Once the VC has bsically dismiss itself a.k.a the user has signed in & we got rid of the controller
+            
+          // Once the VC has bsically dismiss itself a.k.a the user has signed in & we got rid of the controller
             vc.completion = { [weak self] in
+                
                 self?.signInPresented = false
             }
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .fullScreen
             present(navVC, animated: false, completion: nil)
-            
+//            
         }
     }
 
@@ -64,10 +65,17 @@ class TabBarViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: explore)
         let nav3 = UINavigationController(rootViewController:  notifications)
         let nav4 = UINavigationController(rootViewController: profile)
+        let cameraNav = UINavigationController(rootViewController:  camera)
+        
+
         
         nav1.navigationBar.backgroundColor = .clear
         nav1.navigationBar.setBackgroundImage(UIImage(), for: .default)
         nav1.navigationBar.shadowImage = UIImage()
+        
+        cameraNav.navigationBar.backgroundColor = .clear
+        cameraNav.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        cameraNav.navigationBar.shadowImage = UIImage()
         
         nav1.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "safari"), tag: 2)

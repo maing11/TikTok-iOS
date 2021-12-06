@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>199926448173-om7p9mvmsbbgb76bcopjkvgifdsf73q8.apps.googleusercontent.com</string>
+	<string>232195777822-8bli49seaerf98ivqogtm98q8gmsrqfg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.199926448173-om7p9mvmsbbgb76bcopjkvgifdsf73q8</string>
+	<string>com.googleusercontent.apps.232195777822-8bli49seaerf98ivqogtm98q8gmsrqfg</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBA0XJwpGx4Jr6vGZrHqEaH2sZ7doeQCf4</string>
+	<string>AIzaSyAVPOZbED6Igh4d-HVwBavnw78GnXepWeg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>199926448173</string>
+	<string>232195777822</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.maing.TikTok</string>
 	<key>PROJECT_ID</key>
-	<string>tiktok-e486b</string>
+	<string>tiktok-52491</string>
 	<key>STORAGE_BUCKET</key>
-	<string>tiktok-e486b.appspot.com</string>
+	<string>tiktok-52491.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:199926448173:ios:be2c2648b81dc8b7a338a4</string>
+	<string>1:232195777822:ios:fec6db6d4875045572950f</string>
 </dict>
 </plist>

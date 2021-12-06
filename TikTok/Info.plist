@@ -62,5 +62,11 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Please allow access to record video</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to record video</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 </dict>
 </plist>
