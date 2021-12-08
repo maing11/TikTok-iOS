@@ -30,30 +30,70 @@ class CameraViewController: UIViewController {
         return view
     }()
     
+    
+    private let recordButton = RecordButton()
+    private var previewLayer: AVPlayerLayer?
+    var recordedVideoURL: URL?
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(cameraView)
         view.backgroundColor = .systemBackground
         setUpCamera()
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapClose))
-        // Do any additional setup after loading the view.
+
+      
+        view.addSubview(recordButton)
+        recordButton.addTarget(self, action: #selector(didTapRecord), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         cameraView.frame = view.bounds
+        recordButton.frame = view.bounds
+        let size: CGFloat = 75
+        recordButton.frame = CGRect(x: (view.width - size)/2, y: (view.height  - view.safeAreaInsets.bottom - size - 5), width: size, height: size)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
     }
     
+    
+    @objc func didTapRecord() {
+        if captureOutput.isRecording {
+            recordButton.toggle(for: .notRecording)
+            captureOutput.stopRecording()
+        }else {
+            guard var url = FileManager.default.urls(
+                    for: .documentDirectory,
+                    in: .userDomainMask).first else {
+                return
+            }
+            url.appendPathComponent("video.mov")
+            recordButton.toggle(for: .recording)
+            try? FileManager.default.removeItem(at: url)
+            
+            captureOutput.startRecording(to: url, recordingDelegate: self)
+        }
+    }
     @objc private func didTapClose() {
-        captureSession.stopRunning()
-        tabBarController?.tabBar.isHidden = false
-        tabBarController?.selectedIndex  = 0
+        navigationItem.rightBarButtonItem = nil
+        recordButton.isHidden = false
+        
+        if previewLayer != nil {
+            previewLayer?.removeFromSuperlayer()
+            previewLayer = nil
+        } else {
+            captureSession.stopRunning()
+            tabBarController?.tabBar.isHidden = false
+            tabBarController?.selectedIndex  = 0
+        }
+        
         
     }
   
@@ -102,8 +142,29 @@ class CameraViewController: UIViewController {
 extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         guard error == nil else {
+            let alert = UIAlertController(title: "Woops", message: "Something went wrong when recording your video", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true)
             return
         }
         print("Finished recording to url:\(outputFileURL.absoluteString)")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(didTapNext))
+        
+        recordedVideoURL = outputFileURL
+        let player = AVPlayer(url: outputFileURL)
+        previewLayer = AVPlayerLayer(player: player)
+        previewLayer?.videoGravity = .resizeAspectFill
+        previewLayer?.frame = cameraView.bounds
+        guard let previewLayer = previewLayer else {
+            return
+        }
+        recordButton.isHidden = true
+        cameraView.layer.addSublayer(previewLayer)
+        previewLayer.player?.play()
+    }
+    
+    @objc func didTapNext() {
+        // Push caption controller
     }
 }
