@@ -44,7 +44,14 @@ final class AuthManager {
                 return
             }
             //Successful Sign in
+            
+            DatabaseManager.shared.getUsername(for: email) { username in
+                UserDefaults.standard.setValue(username, forKey: "username")
+                print("Got username: \(username)")
+            
+            }
             completion(.success(email))
+
         }
     }
     public func signUp(with username: String,
