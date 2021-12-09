@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        AuthManager.shared.signOut { _ in
 //
 //        }
-        
+//
         // Override point for customization after application launch.
         return true
     }
