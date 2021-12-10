@@ -12,6 +12,14 @@ class CaptionViewController: UIViewController {
 
     var videoURL: URL
     
+    private let captionTextView: UITextView = {
+        let textView = UITextView()
+        textView.contentInset = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        textView.backgroundColor = .secondarySystemBackground
+        textView.layer.cornerRadius = 8
+        textView.layer.masksToBounds = true
+        return textView
+    }()
     init(videoURL: URL) {
         self.videoURL = videoURL
         super.init(nibName: nil, bundle: nil)
@@ -25,13 +33,23 @@ class CaptionViewController: UIViewController {
         title = "Add Caption"
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .done, target: self, action: #selector(didTapPost))
+        view.addSubview(captionTextView)
     }
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        captionTextView.frame = CGRect(x: 5, y: view.safeAreaInsets.top + 5, width: view.width - 10, height: 150).integral
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        captionTextView.becomeFirstResponder()
+    }
         @objc private func didTapPost() {
+            captionTextView.resignFirstResponder()
+            let caption = captionTextView.text ?? ""
             // Generate video name that is uniques based on Id
             let newVideoName = StorageManager.shared.generateVideoName()
             
@@ -42,7 +60,7 @@ class CaptionViewController: UIViewController {
                     if success {
                         // Update database
                         
-                        DatabaseManager.shared.inserPost(filename: newVideoName) { databaseUpdated in
+                        DatabaseManager.shared.inserPost(filename: newVideoName,caption: caption) { databaseUpdated in
                             if databaseUpdated {
                                 HapticsManager.shared.vibrate(for: .success)
                                 ProgressHUD.dismiss()
