@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA09FCF7276052DB00A39DB6 /* CaptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09FCF6276052DB00A39DB6 /* CaptionViewController.swift */; };
+		CA1C8DC4276804FA0040D225 /* Notifiacations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DC3276804FA0040D225 /* Notifiacations.swift */; };
 		CAA4A8502728B15B00704FC7 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4A84F2728B15B00704FC7 /* AuthButton.swift */; };
 		CAA4A8522728B18C00704FC7 /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4A8512728B18C00704FC7 /* AuthField.swift */; };
 		CAA4D1EF275DDBFF00DFB6DE /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4D1EE275DDBFF00DFB6DE /* RecordButton.swift */; };
@@ -60,6 +61,7 @@
 		63FFF8A991CC08A1E8DF39EE /* Pods-TikTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikTok.debug.xcconfig"; path = "Target Support Files/Pods-TikTok/Pods-TikTok.debug.xcconfig"; sourceTree = "<group>"; };
 		857DC02ECC9F9ABC1321A16E /* Pods_TikTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA09FCF6276052DB00A39DB6 /* CaptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionViewController.swift; sourceTree = "<group>"; };
+		CA1C8DC3276804FA0040D225 /* Notifiacations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifiacations.swift; sourceTree = "<group>"; };
 		CAA4A84F2728B15B00704FC7 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		CAA4A8512728B18C00704FC7 /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		CAA4D1EE275DDBFF00DFB6DE /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				CAE6AC4E271E323200DF478C /* ExploreCell.swift */,
 				CAE6AC50271E324300DF478C /* ExploreSectionType.swift */,
 				CAA7DC5827235D8900D6FB50 /* Explore */,
+				CA1C8DC3276804FA0040D225 /* Notifiacations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			files = (
 				CAA4A8502728B15B00704FC7 /* AuthButton.swift in Sources */,
 				CAB91BC026AE4678000EA046 /* HapticsManager.swift in Sources */,
+				CA1C8DC4276804FA0040D225 /* Notifiacations.swift in Sources */,
 				CAAE5F2026B0F65C0041D9CB /* CommentsViewController.swift in Sources */,
 				CAB91BC626AF4B2C000EA046 /* Extensions.swift in Sources */,
 				CAE6AC4D271E322700DF478C /* ExploreSection.swift in Sources */,
