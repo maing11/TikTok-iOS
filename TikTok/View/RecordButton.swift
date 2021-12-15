@@ -2,7 +2,7 @@
 //  RecordButton.swift
 //  TikTok
 //
-//  Created by mai nguyen on 12/5/21.
+//  Created by mai nguyen on 12/14/21.
 //
 
 import UIKit
