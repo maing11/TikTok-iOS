@@ -2,10 +2,12 @@
 //  AuthField.swift
 //  TikTok
 //
-//  Created by mai nguyen on 10/26/21.
+//  Created by mai nguyen on 12/14/21.
 //
 
 import UIKit
+
+
 
 class AuthField: UITextField {
     
@@ -54,7 +56,7 @@ class AuthField: UITextField {
         if type == .password {
             textContentType = .oneTimeCode
             isSecureTextEntry = true
-        } else 
+        } else
         if type == .email {
             keyboardType = .emailAddress
             textContentType = .emailAddress
@@ -63,3 +65,4 @@ class AuthField: UITextField {
     }
 
 }
+
