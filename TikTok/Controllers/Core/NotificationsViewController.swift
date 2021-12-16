@@ -55,10 +55,30 @@ class NotificationsViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+
         
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        tableView.refreshControl = control
+        
+        
+  
         fetchNotifiacations()
     }
     
+        @objc func didPullToRefresh(_ sender: UIRefreshControl) {
+            sender.beginRefreshing()
+            DatabaseManager.shared.getNotifications { [weak self] notifications in
+                DispatchQueue.main.async {
+                    self?.notifications = notifications
+                    self?.tableView.reloadData()
+    
+                    sender.endRefreshing()
+                }
+    
+            }
+        }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -134,9 +154,7 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
         }
         
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+  
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -145,17 +163,18 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
         return .delete
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         guard  editingStyle == .delete  else {
             return
         }
         let model = notifications[indexPath.row]
         model.isHidden = true
+        self.notifications = self.notifications.filter({$0.isHidden == false})
         
         DatabaseManager.shared.markNotificationAsHidden(notificationID: model.identifier) { [weak self] success in
+            DispatchQueue.main.async {
             if success {
-                DispatchQueue.main.async {
                     self?.notifications = self?.notifications.filter({$0.isHidden == false}) ?? []
-                    
                     tableView.beginUpdates()
                     tableView.deleteRows(at: [indexPath], with: .none)
                     tableView.endUpdates()
@@ -164,6 +183,9 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
             }
         }
        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
   
 }
