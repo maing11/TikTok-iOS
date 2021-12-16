@@ -132,7 +132,7 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationPostLikeTableViewCell.identifier, for: indexPath) as? NotificationPostLikeTableViewCell else {
                 return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
-            
+            cell.delegate = self
             cell.configure(with: postName,model: model)
             return cell
 
@@ -140,6 +140,7 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationsUserFollowTableViewCell.identifier, for: indexPath) as? NotificationsUserFollowTableViewCell else {
                 return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
+            cell.delegate = self
             cell.configure(with: userName,model: model)
             return cell
             
@@ -147,7 +148,7 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationsPostCommentTableViewCell.identifier, for: indexPath) as? NotificationsPostCommentTableViewCell else {
                 return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             }
-        
+            cell.delegate = self
             cell.configure(with: postName,model: model)
             return cell
             
@@ -188,4 +189,49 @@ extension NotificationsViewController:UITableViewDelegate, UITableViewDataSource
         return 80
     }
   
+}
+
+extension NotificationsViewController: NotificationsUserFollowTableViewCellDelegate {
+    func notificationsUserFollowTableViewCell(_ cell: NotificationsUserFollowTableViewCell, didTapFolowFor username: String) {
+        
+        DatabaseManager.shared.follow(username: username) { success in
+            if !success {
+                print("something failed")
+            }
+        }
+    }
+    
+    func notificationsUserFollowTableViewCell(_ cell: NotificationsUserFollowTableViewCell, didTapAvatarFor username: String) {
+        let vc = ProfileViewController(user: User(username: username,
+                                                  profilePictureURL: nil,
+                                                  identifier: "123"))
+        vc.title = username.uppercased()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+}
+
+extension NotificationsViewController: NotificationPostLikeTableViewCellDelegate {
+    func notificationPostLikeTableViewCell(_ cell: NotificationPostLikeTableViewCell, didTapPostWith identifier: String) {
+        openPost(with: identifier)
+        
+    }
+    
+    
+}
+extension NotificationsViewController: NotificationsPostCommentTableViewCellDelegate {
+    func notificationsPostCommentTableViewCell(_ cell: NotificationsPostCommentTableViewCell, didTapPostWith identifier: String) {
+        openPost(with: identifier)
+        
+    }
+}
+
+extension NotificationsViewController {
+    func openPost(with ID: String) {
+        // resolve the post model from database
+        let vc = PostViewController(model: PostModel(identifier: ID))
+        vc.title = "Video"
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
