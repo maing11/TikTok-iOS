@@ -38,20 +38,20 @@ class Notification {
     
     
     static func mockData() -> [Notification]{
-        let second =  Array(0...5).compactMap {
+     
+        
+        let first =  Array(0...5).compactMap {
             Notification(
                 text: "Something happened \($0)",
                 type: .postLike(postName: "abcdc"),
                 date: Date())
         }
-        
-        let first =  Array(0...5).compactMap {
+        let second =  Array(0...5).compactMap {
             Notification(
                 text: "Something happened \($0)",
                 type: .userFolow(userName: "abcdc"),
                 date: Date())
         }
-        
    
         
         let third =  Array(0...5).compactMap {

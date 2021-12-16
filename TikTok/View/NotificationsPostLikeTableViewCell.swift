@@ -7,8 +7,16 @@
 
 import UIKit
 
+protocol NotificationPostLikeTableViewCellDelegate: AnyObject {
+    func notificationPostLikeTableViewCell(_ cell: NotificationPostLikeTableViewCell,
+                                           didTapPostWith identifier:String)
+}
+
 class NotificationPostLikeTableViewCell: UITableViewCell {
     static let identifier = "NotificationPostLikeTableViewCell"
+    
+    weak var delegate: NotificationPostLikeTableViewCellDelegate?
+    var postID: String?
     
     private let postThumbnailImageView: UIImageView = {
         let imageView = UIImageView()
@@ -40,8 +48,18 @@ class NotificationPostLikeTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(dateLabel)
         selectionStyle = .none
+        postThumbnailImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapPost))
+        postThumbnailImageView.addGestureRecognizer(tap)
     }
     
+    
+    @objc func didTapPost() {
+        guard let id = postID else {
+            return
+        }
+        delegate?.notificationPostLikeTableViewCell(self, didTapPostWith: id)
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -89,5 +107,6 @@ class NotificationPostLikeTableViewCell: UITableViewCell {
         postThumbnailImageView.image = UIImage(named: "test")
         label.text = model.text
         dateLabel.text = .date(with: model.date)
+        postID = postFileName
     }
 }
