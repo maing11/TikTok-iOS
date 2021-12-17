@@ -21,6 +21,8 @@
 		CA1C8DEE2769673D0040D225 /* NotificationsPostLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DED2769673D0040D225 /* NotificationsPostLikeTableViewCell.swift */; };
 		CA1C8DF02769674A0040D225 /* NotificationsPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DEF2769674A0040D225 /* NotificationsPostCommentTableViewCell.swift */; };
 		CA1C8DF22769681B0040D225 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DF12769681B0040D225 /* Notifications.swift */; };
+		CA1C8DF5276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DF4276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift */; };
+		CA1C8DF7276C21DC0040D225 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DF6276C21DC0040D225 /* ProfileHeaderViewModel.swift */; };
 		CAA58E2D2759E06B00916C4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA58E2C2759E06B00916C4B /* GoogleService-Info.plist */; };
 		CAA7DC4D271FD38D00D6FB50 /* ExploreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7DC4C271FD38D00D6FB50 /* ExploreManager.swift */; };
 		CAA7DC4F2722485400D6FB50 /* explore.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA7DC4E2722485400D6FB50 /* explore.json */; };
@@ -77,6 +79,8 @@
 		CA1C8DED2769673D0040D225 /* NotificationsPostLikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostLikeTableViewCell.swift; sourceTree = "<group>"; };
 		CA1C8DEF2769674A0040D225 /* NotificationsPostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostCommentTableViewCell.swift; sourceTree = "<group>"; };
 		CA1C8DF12769681B0040D225 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		CA1C8DF4276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReuseableView.swift; sourceTree = "<group>"; };
+		CA1C8DF6276C21DC0040D225 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		CAA58E2C2759E06B00916C4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAA7DC4C271FD38D00D6FB50 /* ExploreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreManager.swift; sourceTree = "<group>"; };
 		CAA7DC4E2722485400D6FB50 /* explore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = explore.json; sourceTree = "<group>"; };
@@ -165,6 +169,16 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		CA1C8DF3276C09640040D225 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				CA1C8DEF2769674A0040D225 /* NotificationsPostCommentTableViewCell.swift */,
+				CA1C8DED2769673D0040D225 /* NotificationsPostLikeTableViewCell.swift */,
+				CA1C8DE72769643B0040D225 /* NotificationsUserFollowTableViewCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		CA89C7F92727C53700CFE84E /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +244,7 @@
 				CAE6AC4E271E323200DF478C /* ExploreCell.swift */,
 				CAE6AC50271E324300DF478C /* ExploreSectionType.swift */,
 				CA1C8DF12769681B0040D225 /* Notifications.swift */,
+				CA1C8DF6276C21DC0040D225 /* ProfileHeaderViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,13 +252,12 @@
 		CAB91B9526AE3EF0000EA046 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA1C8DDE276961F80040D225 /* Auth */,
-				CA1C8DCB276960CD0040D225 /* Explore */,
 				CAAE5F2526B4D2120041D9CB /* CommentTableViewCell.swift */,
+				CA1C8DDE276961F80040D225 /* Auth */,
 				CA1C8DE52769629C0040D225 /* RecordButton.swift */,
-				CA1C8DE72769643B0040D225 /* NotificationsUserFollowTableViewCell.swift */,
-				CA1C8DED2769673D0040D225 /* NotificationsPostLikeTableViewCell.swift */,
-				CA1C8DEF2769674A0040D225 /* NotificationsPostCommentTableViewCell.swift */,
+				CA1C8DCB276960CD0040D225 /* Explore */,
+				CA1C8DF3276C09640040D225 /* Notifications */,
+				CA1C8DF4276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,8 +477,10 @@
 				CA1C8DE22769621F0040D225 /* AuthField.swift in Sources */,
 				CAE6AC53271E34FD00DF478C /* ExploreBannerViewModel.swift in Sources */,
 				CAE6AC59271E354E00DF478C /* ExploreUserViewModel.swift in Sources */,
+				CA1C8DF7276C21DC0040D225 /* ProfileHeaderViewModel.swift in Sources */,
 				CAA7DC5527234C8300D6FB50 /* ExploreHashtagCollectionViewCell.swift in Sources */,
 				CAB91BB226AE45C5000EA046 /* TabBarViewController.swift in Sources */,
+				CA1C8DF5276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift in Sources */,
 				CAAE5F2426B11DD70041D9CB /* User.swift in Sources */,
 				CA1C8DF22769681B0040D225 /* Notifications.swift in Sources */,
 				CA1C8DDD276961DD0040D225 /* SignInViewController.swift in Sources */,
