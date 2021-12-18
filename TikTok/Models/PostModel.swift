@@ -10,21 +10,21 @@ import Foundation
 
 struct PostModel {
     let identifier: String
-    
-    let user = User(
-        username: "mieng20",
-        profilePictureURL: nil,
-        identifier: UUID().uuidString
-    )
-    
-    var isLikeByCurrentUser = false
-    
+    let user:User
+    var fileName: String = ""
+    var caption: String = ""
+        
     var isLikedByCurrentUser = false
     
     static func mockModels() -> [PostModel] {
         var posts = [PostModel]()
         for x in 0...100 {
-            let post = PostModel(identifier: UUID().uuidString)
+            let post = PostModel(identifier: UUID().uuidString,
+                                 user:User(
+                                    username: "mieng20",
+                                    profilePictureURL: nil,
+                                    identifier: UUID().uuidString
+                                ))
             posts.append(post)
         }
         return posts

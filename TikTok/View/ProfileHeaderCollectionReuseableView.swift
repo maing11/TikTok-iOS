@@ -15,6 +15,8 @@ protocol ProfileHeaderCollectionReusableViewDelegate: AnyObject {
                                              didTapFollowersButtonWith viewModel: ProfileHeaderViewModel)
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
                                              didTapFollowingButtonWith viewModel: ProfileHeaderViewModel)
+    func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView,
+                                             didTapAvatarFor viewModel: ProfileHeaderViewModel)
 }
 
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
@@ -77,6 +79,17 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         backgroundColor = .systemBackground
         addSubview()
         configureButton()
+        
+        let tap =  UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))
+        avatarImageView.isUserInteractionEnabled = true
+        avatarImageView.addGestureRecognizer(tap)
+    }
+    
+    @objc func didTapAvatar() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        delegate?.profileHeaderCollectionReusableView(self, didTapAvatarFor: viewModel)
 
     }
     
@@ -137,7 +150,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         self.viewModel = viewModel
         //Set up our header
         followersButton.setTitle("\(viewModel.followerCount)\nFollowers", for: .normal)
-        followingButton.setTitle("\(viewModel.followerCount)\nFollowers", for: .normal)
+        followingButton.setTitle("\(viewModel.followerCount)\nFollowing", for: .normal)
         
         if let avatarURL = viewModel.avatarImageURL {
             avatarImageView.sd_setImage(with: avatarURL, completed: nil)
