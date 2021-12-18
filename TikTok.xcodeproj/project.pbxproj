@@ -23,6 +23,7 @@
 		CA1C8DF22769681B0040D225 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DF12769681B0040D225 /* Notifications.swift */; };
 		CA1C8DF5276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DF4276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift */; };
 		CA1C8DF7276C21DC0040D225 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DF6276C21DC0040D225 /* ProfileHeaderViewModel.swift */; };
+		CA1C8DFB276DC6890040D225 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1C8DFA276DC6890040D225 /* PostCollectionViewCell.swift */; };
 		CAA58E2D2759E06B00916C4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA58E2C2759E06B00916C4B /* GoogleService-Info.plist */; };
 		CAA7DC4D271FD38D00D6FB50 /* ExploreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7DC4C271FD38D00D6FB50 /* ExploreManager.swift */; };
 		CAA7DC4F2722485400D6FB50 /* explore.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA7DC4E2722485400D6FB50 /* explore.json */; };
@@ -81,6 +82,7 @@
 		CA1C8DF12769681B0040D225 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		CA1C8DF4276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReuseableView.swift; sourceTree = "<group>"; };
 		CA1C8DF6276C21DC0040D225 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		CA1C8DFA276DC6890040D225 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		CAA58E2C2759E06B00916C4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAA7DC4C271FD38D00D6FB50 /* ExploreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreManager.swift; sourceTree = "<group>"; };
 		CAA7DC4E2722485400D6FB50 /* explore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = explore.json; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				CA1C8DCB276960CD0040D225 /* Explore */,
 				CA1C8DF3276C09640040D225 /* Notifications */,
 				CA1C8DF4276C112E0040D225 /* ProfileHeaderCollectionReuseableView.swift */,
+				CA1C8DFA276DC6890040D225 /* PostCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				CA1C8DD6276961A40040D225 /* CommentsViewController.swift in Sources */,
 				CAB91BBC26AE465B000EA046 /* DatabaseManager.swift in Sources */,
 				CAB91BA026AE450E000EA046 /* ExploreViewController.swift in Sources */,
+				CA1C8DFB276DC6890040D225 /* PostCollectionViewCell.swift in Sources */,
 				CAE6AC57271E351A00DF478C /* ExploreHashtagViewModel.swift in Sources */,
 				CA1C8DD8276961A40040D225 /* UserListViewController.swift in Sources */,
 				CAA7DC572723570E00D6FB50 /* ExplorePostCollectionViewCell.swift in Sources */,
