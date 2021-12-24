@@ -192,25 +192,61 @@ final class DatabaseManager {
             // Insert in current user's following
             let path = "users/\(currentUsername)/following"
             database.child(path).observeSingleEvent(of: .value) { (snapshot) in
-                let usernameToInsert = user.username
+                let usernameToInsert = user.username.lowercased()
                 if var current = snapshot.value as? [String] {
                     current.append(usernameToInsert)
+                    self.database.child(path).setValue(current) { error, _ in
+                        completion(error == nil)
+                    }
+                } else {
+                    self.database.child(path).setValue(usernameToInsert) { error, _ in
+                        completion(error == nil)
+                }
+            }
+        }
+            
+            // Insert in target users followers
+            let path2 = "users/\(user.username.lowercased())/followers"
+            database.child(path2).observeSingleEvent(of: .value) { (snapshot) in
+                let usernameToInsert = currentUsername.lowercased()
+                if var current = snapshot.value as? [String] {
+                    current.append(usernameToInsert)
+                    self.database.child(path2).setValue(current) { error, _ in
+                        completion(error == nil)
+                    }
+                } else {
+                    self.database.child(path2).setValue(usernameToInsert) { error, _ in
+                        completion(error == nil)
+                    }
+                }
+            }
+            
+        }
+        else {
+            //unfollow
+            // Remove from current user following
+            let path = "users/\(currentUsername)/following"
+            database.child(path).observeSingleEvent(of: .value) { (snapshot) in
+                let usernameToRemove = user.username.lowercased()
+                if var current = snapshot.value as? [String] {
+                    current.removeAll(where: {$0 == usernameToRemove})
                     self.database.child(path).setValue(current) { error, _ in
                         completion(error == nil)
                     }
                 }
             }
             
-            // Insert in target users followers
-            
-        } else {
-            //unfollow
-            
-            // Remove in current's following
-            
-            // Remove in target users followers
-            
+            // Remove in target username
+            let path2 = "users/\(user.username.lowercased())/followers"
+            database.child(path2).observeSingleEvent(of: .value) { (snapshot) in
+                let usernameToRemove = currentUsername.lowercased()
+                if var current = snapshot.value as? [String] {
+                    current.removeAll(where: {$0 == usernameToRemove})
+                    self.database.child(path2).setValue(current) { error, _ in
+                        completion(error == nil)
+                    }
+                }
+            }
         }
     }
-        
 }
