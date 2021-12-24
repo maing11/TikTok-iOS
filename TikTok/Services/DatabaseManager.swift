@@ -24,15 +24,7 @@ final class DatabaseManager {
         // insert new entry
         // create root users
         
-//        database.child(username).setValue(["email": email]) { error, _ in
-//            guard let error == nil else {
-//                completion(false)
-//                return
-//            }
-//            completion(true)
-//        }
         database.child("users").observeSingleEvent(of: .value) { [weak self] snapshot in
-//            print(snapshot.value)
             guard var usersDictionary = snapshot.value as? [String: Any] else {
                 // create users root node
                 self?.database.child("users").setValue(
@@ -80,6 +72,7 @@ final class DatabaseManager {
 
     public func inserPost(filename: String,caption: String, completion: @escaping (Bool) -> Void) {
         guard let username = UserDefaults.standard.string(forKey: "username") else {
+            completion(false)
             return
         }
         
@@ -95,7 +88,6 @@ final class DatabaseManager {
             
             if var post = value["posts"] as? [[String: Any]] {
                 post.append(newEntry)
-                
                 value["posts"] = post
                 
                 self?.database.child("users").child(username).setValue(value) {error,_ in
@@ -146,7 +138,7 @@ final class DatabaseManager {
                 var model = PostModel(identifier: UUID().uuidString,
                                       user: user)
                 model.fileName = $0["name"] ?? ""
-                model.caption = $0["name"] ?? ""
+                model.caption = $0["caption"] ?? ""
 
                 return model
             })

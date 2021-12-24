@@ -75,6 +75,22 @@ class PostViewController: UIViewController {
     var player: AVPlayer?
     private var playerDidFinishObserver: NSObjectProtocol?
     
+    private let videoView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.clipsToBounds = true
+        return view
+        
+    }()
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.tintColor = .label
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        return spinner
+        
+    }()
     
     // MARK: - Init
     init(model: PostModel) {
@@ -89,10 +105,10 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(videoView)
+        view.addSubview(spinner)
         configureVideo()
-
-        let colors : [UIColor] = [.red, .green,.black,.orange,.blue,.systemPink]
-        view.backgroundColor = colors.randomElement()
+        view.backgroundColor = .black
         
         setUpButtons()
         setUpDoubleTapToLike()
@@ -104,6 +120,9 @@ class PostViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        videoView.frame = view.bounds
+        spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        spinner.center = videoView.center
         
         let size: CGFloat = 40
 //        (tabBarController?.tabBar.height ?? 0)
@@ -152,18 +171,44 @@ class PostViewController: UIViewController {
 
     private func configureVideo() {
         // guard let because this path for resource might actually be nil
-        guard let path = Bundle.main.path(forResource: "cocacola", ofType: "mp4") else { return }
+//        guard let path = Bundle.main.path(forResource: "cocacola", ofType: "mp4") else { return }
+//
+//        let url = URL(fileURLWithPath: path)
+        
+        StorageManager.shared.getDownloadURL(for: model) { [weak self] result in
+           
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.spinner.startAnimating()
+                strongSelf.spinner.removeFromSuperview()
+                switch result  {
+                case .success(let url):
+                    strongSelf.player = AVPlayer(url: url)
 
-        let url = URL(fileURLWithPath: path)
-        player = AVPlayer(url: url)
+                    let playerlayer = AVPlayerLayer(player: strongSelf.player)
+                    playerlayer.frame = strongSelf.view.bounds
+                    playerlayer.videoGravity = .resizeAspectFill
+                    strongSelf.videoView.layer.addSublayer(playerlayer)
+                    strongSelf.player?.volume = 0
+                    strongSelf.player?.play()
+                    
+                case .failure:
+                    guard let path = Bundle.main.path(forResource: "cocacola", ofType: "mp4") else { return }
+                    let url = URL(fileURLWithPath: path)
+                    let playerlayer = AVPlayerLayer(player: strongSelf.player)
+                    playerlayer.frame = strongSelf.view.bounds
+                    playerlayer.videoGravity = .resizeAspectFill
+                    strongSelf.videoView.layer.addSublayer(playerlayer)
+                    strongSelf.player?.volume = 0
+                    strongSelf.player?.play()
+                    
 
-            var playerlayer = AVPlayerLayer(player: player)
-
-        playerlayer.frame = view.bounds
-            playerlayer.videoGravity = .resizeAspectFill
-            view.layer.addSublayer(playerlayer)
-            player?.volume = 0
-            player?.play()
+                }
+            }
+        }
+  
 //        playerLayer.frame = CGRect(x: 0, y: descriptionLabel.bounds.maxY, width: 300, height: 300)
 //            let playerViewController = AVPlayerViewController()
 //            playerViewController.player = player

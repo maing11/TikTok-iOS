@@ -149,7 +149,7 @@ final class ExploreManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     let vc = PostViewController(model: PostModel(identifier: postID, user: User(
-                        username: "mieng20",
+                        username: "mie",
                         profilePictureURL: nil,
                         identifier: UUID().uuidString
                     )))
@@ -174,7 +174,7 @@ final class ExploreManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     let vc = PostViewController(model: PostModel(identifier: postID,user: User(
-                        username: "mieng20",
+                        username: "mie",
                         profilePictureURL: nil,
                         identifier: UUID().uuidString
                     )))
@@ -199,7 +199,7 @@ final class ExploreManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     let vc = PostViewController(model: PostModel(identifier: postID, user:User(
-                        username: "mieng20",
+                        username: "mie",
                         profilePictureURL: nil,
                         identifier: UUID().uuidString
                     )))
