@@ -123,9 +123,7 @@ final class DatabaseManager {
     public func follow(username: String,completion: @escaping (Bool) -> Void) {
         completion(true)
     }
-    public func getAllUsers(completion: ([String]) -> Void) {
-        
-    }
+
     func getPosts(for user: User, completion: @escaping ([PostModel]) -> Void) {
         let path = "users/\(user.username.lowercased())/posts"
         database.child(path).observeSingleEvent(of: .value) { snapshot in
@@ -146,4 +144,73 @@ final class DatabaseManager {
         }
         
     }
+    
+    public func getRelationships(for user: User,
+                                 type: UserListViewController.ListType,
+                                 completion: @escaping ([String]) -> Void) {
+        let path = "users/\(user.username.lowercased())/\(type.rawValue)"
+        print("Fetching path: \(path)")
+        database.child(path).observeSingleEvent(of: .value) { snapshot in
+            guard let usernameCollection = snapshot.value as? [String] else {
+                completion([])
+                return
+            }
+            completion(usernameCollection)
+        }
+        
+    }
+    
+    public func isValidRelationship(
+        for user: User,
+        type: UserListViewController.ListType,
+        completion: @escaping (Bool) -> Void) {
+        
+        guard let currentUsername = UserDefaults.standard.string(forKey: "username")?.lowercased() else {
+            return
+        }
+        let path = "users/\(user.username.lowercased())/\(type.rawValue)"
+        
+        database.child(path).observeSingleEvent(of: .value) { snapshot in
+            guard let usernameCollection = snapshot.value as? [String] else {
+                completion(false)
+                return
+            }
+            completion(usernameCollection.contains(currentUsername))
+        }
+    }
+    public func updateRelationship(
+        for user: User,
+        follow: Bool,
+        completion: @escaping (Bool) -> Void) {
+        guard let currentUsername = UserDefaults.standard.string(forKey: "username")?.lowercased() else {
+            return
+        }
+        
+        if follow {
+            // follow
+            
+            // Insert in current user's following
+            let path = "users/\(currentUsername)/following"
+            database.child(path).observeSingleEvent(of: .value) { (snapshot) in
+                let usernameToInsert = user.username
+                if var current = snapshot.value as? [String] {
+                    current.append(usernameToInsert)
+                    self.database.child(path).setValue(current) { error, _ in
+                        completion(error == nil)
+                    }
+                }
+            }
+            
+            // Insert in target users followers
+            
+        } else {
+            //unfollow
+            
+            // Remove in current's following
+            
+            // Remove in target users followers
+            
+        }
+    }
+        
 }
