@@ -94,15 +94,14 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postModel = posts[indexPath.row]
+        
         guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as? PostCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -112,6 +111,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         // Open Post
+        let post = posts[indexPath.row]
+        let vc = PostViewController(model: post)
+        vc.title = "Video"
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -236,3 +239,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     
 }
+
+
+extension ProfileViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        // Present Comment
+    }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor Post: PostModel) {
+        // Push another profile
+    }
+}
+

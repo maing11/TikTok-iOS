@@ -18,10 +18,10 @@ struct PostModel {
     
     static func mockModels() -> [PostModel] {
         var posts = [PostModel]()
-        for x in 0...100 {
+        for _ in 0...100 {
             let post = PostModel(identifier: UUID().uuidString,
                                  user:User(
-                                    username: "mieng20",
+                                    username: "mie",
                                     profilePictureURL: nil,
                                     identifier: UUID().uuidString
                                 ))
@@ -31,7 +31,7 @@ struct PostModel {
     }
     
     var videoChildPath : String {
-        return "videos/\(user.username.lowercased())/\(fileName )"
+        return "videos/\(user.username.lowercased())/\(fileName)"
     }
 }
  

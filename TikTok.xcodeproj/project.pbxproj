@@ -71,8 +71,8 @@
 		CA1C8DCF276961A30040D225 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = Other/CommentsViewController.swift; sourceTree = "<group>"; };
 		CA1C8DD1276961A30040D225 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListViewController.swift; path = Other/UserListViewController.swift; sourceTree = "<group>"; };
 		CA1C8DD2276961A40040D225 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Other/SettingsViewController.swift; sourceTree = "<group>"; };
-		CA1C8DDA276961DD0040D225 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = TikTok/Controllers/Other/Other/Authentication/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
-		CA1C8DDB276961DD0040D225 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = TikTok/Controllers/Other/Other/Authentication/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
+		CA1C8DDA276961DD0040D225 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = TikTok/Controllers/Other/Authentication/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		CA1C8DDB276961DD0040D225 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = TikTok/Controllers/Other/Authentication/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		CA1C8DDF276962040040D225 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		CA1C8DE12769621F0040D225 /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		CA1C8DE52769629C0040D225 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		CA89C7F92727C53700CFE84E /* Authentication */ = {
+		CA40983E2775685100BC6328 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				CA1C8DDB276961DD0040D225 /* SignInViewController.swift */,
@@ -315,7 +315,7 @@
 		CAB91B9E26AE44F9000EA046 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				CA89C7F92727C53700CFE84E /* Authentication */,
+				CA40983E2775685100BC6328 /* Authentication */,
 				CA1C8DCD276961A30040D225 /* CaptionViewController.swift */,
 				CA1C8DCF276961A30040D225 /* CommentsViewController.swift */,
 				CA1C8DCC276961A30040D225 /* PostViewController.swift */,

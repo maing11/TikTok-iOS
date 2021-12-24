@@ -231,7 +231,7 @@ extension NotificationsViewController {
     func openPost(with identifier: String) {
         // resolve the post model from database
         let vc = PostViewController(model: PostModel(identifier: identifier, user: User(
-            username: "mieng20",
+            username: "mie",
             profilePictureURL: nil,
             identifier: UUID().uuidString
         )))

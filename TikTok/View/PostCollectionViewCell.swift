@@ -51,7 +51,8 @@ class PostCollectionViewCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let url):
-                    let asset = AVAsset(url: URL(string: "")!)
+                    print("got url:\(url)")
+                    let asset = AVAsset(url: url)
                     let generator = AVAssetImageGenerator(asset: asset)
                     do {
                         let cgImage = try generator.copyCGImage(at: .zero, actualTime: nil)
