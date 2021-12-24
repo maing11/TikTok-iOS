@@ -58,9 +58,9 @@ class TabBarViewController: UITabBarController {
             urlString = cachedUrlString
         }
         
-        let profile = ProfileViewController(user: User(username: UserDefaults.standard.string(forKey: "username")?.uppercased() ?? "Me",
-                                                       profilePictureURL: URL(string:urlString ?? ""),
-                                                       identifier: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""))
+        let profile = ProfileViewController(user: User(username: "greentea".uppercased(),
+                                                       profilePictureURL: nil,
+                                                       identifier:"greentea"))
         
 //        home.title = "Home"
 //        explore.title = "Explore"

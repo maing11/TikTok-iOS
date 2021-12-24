@@ -39,6 +39,11 @@ class ProfileViewController: UIViewController {
     }()
     
     private var posts = [PostModel]()
+    private var followers = [String]()
+    private var following = [String]()
+    private var isFollower: Bool = false
+    
+
     
     init(user: User) {
         self.user = user
@@ -133,14 +138,41 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return UICollectionReusableView()
         }
         header.delegate = self
-        print(user.profilePictureURL)
         
-        let viewModel = ProfileHeaderViewModel(
-            avatarImageURL: user.profilePictureURL,
-            followerCount: 120,
-            followingCount: 200,
-            isFollowing: isCurrentUserProfile ? nil : false)
-        header.configure(with: viewModel)
+        let group = DispatchGroup()
+        group.enter()
+        group.enter()
+        group.enter()
+
+        DatabaseManager.shared.getRelationships(for: user, type: .followers) {[weak self] followers in
+            defer {
+                group.leave()
+            }
+            self?.followers = followers
+        }
+        DatabaseManager.shared.getRelationships(for: user, type: .following) { [weak self] following in
+            defer {
+                group.leave()
+            }
+            self?.following = following
+        }
+        
+        DatabaseManager.shared.isValidRelationship(for: user,
+                                                   type: .followers) {[weak self] isFollower in
+            defer {
+                group.leave()
+            }
+            self?.isFollower = isFollower
+        }
+        
+        group.notify(queue: .main) {
+            let viewModel = ProfileHeaderViewModel(
+                avatarImageURL: self.user.profilePictureURL,
+                followerCount: self.followers.count,
+                followingCount: self.following.count,
+                isFollowing: self.isCurrentUserProfile ? nil : self.isFollower)
+            header.configure(with: viewModel)
+        }
        
         return header
               
@@ -158,15 +190,44 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate{
             // Edit Profile
         } else {
             // Follow or unfollow current users profile that we are viewing
+            if self.isFollower  {
+                //Unfollow
+                    DatabaseManager.shared.updateRelationship(for: self.user, follow: false) { [weak self] success in
+                        if success {
+                            DispatchQueue.main.async {
+                                self?.isFollower = false
+                                self?.collectionView.reloadData()
+                        }
+                    } else {
+                            
+                    }
+                }
+            } else {
+                //Follow
+                    DatabaseManager.shared.updateRelationship(for: self.user, follow: true) { [weak self] success in
+                        if success {
+                            DispatchQueue.main.async {
+                                self?.isFollower = true
+                                self?.collectionView.reloadData()
+                        }
+                    } else {
+                            
+                    }
+                }
+            }
         }
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowersButtonWith viewModel: ProfileHeaderViewModel) {
-        
+        let vc = UserListViewController(type: .followers, user: user)
+        vc.users = followers
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowingButtonWith viewModel: ProfileHeaderViewModel) {
-        
+        let vc = UserListViewController(type: .following, user: user)
+        vc.users = following
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
