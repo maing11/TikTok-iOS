@@ -65,6 +65,7 @@ final class AuthManager {
                 completion(false)
                 return
             }
+            UserDefaults.standard.setValue(username, forKey: "username")
             DatabaseManager.shared.insertUser(with: emailAdress, username: username, completion: completion)
         }
         
