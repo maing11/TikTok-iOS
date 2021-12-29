@@ -9,19 +9,16 @@ import SafariServices
 import UIKit
 
 
-struct SettingsSection {
-    let title:String
-    let options: [SettingsOption]
-}
-
 struct SettingsOption {
     let title: String
     let handler:(() -> Void)
 }
+
 class SettingsViewController: UIViewController {
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         return table
     }()
     
@@ -36,7 +33,15 @@ class SettingsViewController: UIViewController {
 //    self?.present(vc, animated: true, completion: true)
     override func viewDidLoad() {
         super.viewDidLoad()
-        sections = [SettingsSection(title: "Information",
+        sections = [
+            SettingsSection(title: "Information",
+                                    options: [
+                                        SettingsOption(title: "Save Videos", handler: { })
+                                        ]
+                                    )
+                                        ,
+                                        
+            SettingsSection(title: "Information",
                                     options: [
                                         SettingsOption(title: "Terms of Service", handler: { [weak self] in
                                             DispatchQueue.main.async {
@@ -47,7 +52,7 @@ class SettingsViewController: UIViewController {
                                                 self?.present(vc, animated: true)
                                             }
                                         }),
-                                        SettingsOption(title: "Privacy Policy", handler: { [weak self] in
+            SettingsOption(title: "Privacy Policy", handler: { [weak self] in
                                             DispatchQueue.main.async {
                                                 guard let url = URL(string: "https://www.tiktok.com/legal/privacy-policy") else {
                                                     return
@@ -130,6 +135,16 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section].options[indexPath.row]
+        
+        if model.title == "Save Videos" {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier,
+                                                           for: indexPath) as? SwitchTableViewCell  else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            cell.configure(with: SwitchCellViewModel(title: model.title, isOn: UserDefaults.standard.bool(forKey: "save_video")))
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.accessoryType = .disclosureIndicator
@@ -144,4 +159,11 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         return sections[section].title
     }
     
+}
+
+extension SettingsViewController: SwitchTableViewCellDelegate {
+    func switchTableViewCell(_ cell: SwitchTableViewCell, didUpdateSwitchTo isOn: Bool) {
+        print(isOn)
+        UserDefaults.standard.setValue(isOn, forKey: "save_videos")
+    }
 }
