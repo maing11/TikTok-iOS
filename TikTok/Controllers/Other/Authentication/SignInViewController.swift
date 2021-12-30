@@ -116,15 +116,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async {
                 switch result {
                 case .success:
+                    HapticsManager.shared.vibrate(for: .success)
                     self?.dismiss(animated: true, completion: nil)
                    
                 case .failure(let error):
-                print(error)
-                let alert = UIAlertController(title: "Sign In failure", message: "Please check you email and password to try again", preferredStyle: .alert)
+                    HapticsManager.shared.vibrate(for: .error)
+
+                 let alert = UIAlertController(title: "Sign In failure",
+                                               message: "Please check you email and password to try again",
+                                               preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-                self?.present(alert, animated: true)
-                self?.passwordField.text = nil
+                 alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                 self?.present(alert, animated: true)
+                 self?.passwordField.text = nil
 
                 }
                 

@@ -262,19 +262,7 @@ extension ExploreViewController: UISearchBarDelegate{
 }
 
 
-extension ExploreViewController: ExploreManagerDelegate {
-    func pushViewController(_ vc: UIViewController) {
-        navigationController?.pushViewController(vc, animated: true)
 
-    }
-    
-    func didTapHashtag(_ hashtag: String) {
-        searchBar.text = hashtag
-        searchBar.becomeFirstResponder()
-    }
-  
-    
-}
 
 extension ExploreViewController {
     func layout(for section: Int) -> NSCollectionLayoutSection {
@@ -416,4 +404,21 @@ extension ExploreViewController {
 
     }
 
+}
+
+
+extension ExploreViewController: ExploreManagerDelegate {
+    func pushViewController(_ vc: UIViewController) {
+        HapticsManager.shared.vibrateForSelection()
+        navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
+    func didTapHashtag(_ hashtag: String) {
+        HapticsManager.shared.vibrateForSelection()
+        searchBar.text = hashtag
+        searchBar.becomeFirstResponder()
+    }
+  
+    
 }

@@ -268,6 +268,7 @@ class PostViewController: UIViewController {
         if !model.isLikedByCurrentUser {
             model.isLikedByCurrentUser = true
         }
+        HapticsManager.shared.vibrateForSelection()
         
         let touchPoint = gesture.location(in: view)
         
