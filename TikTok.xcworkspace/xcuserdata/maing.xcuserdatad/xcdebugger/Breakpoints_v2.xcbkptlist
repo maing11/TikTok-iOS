@@ -110,8 +110,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "parseExploreData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "parseExploreData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "parseExploreData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "ExploreManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "ExploreManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "ExploreManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -254,8 +254,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "parseExploreData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "getExploreTrendingPost()"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,13 +334,13 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "getExploreRecentPost()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D64AB678-BB98-4CF2-BD9C-A957D854E0E8 - 47c103114d906d2d"
+                  uuid = "D64AB678-BB98-4CF2-BD9C-A957D854E0E8 - 47c103114d906a34"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -350,12 +350,12 @@
                   urlString = "file:///Users/maing/Desktop/TikTok/TikTok/Services/ExploreManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "122">
                </Location>
                <Location
-                  uuid = "D64AB678-BB98-4CF2-BD9C-A957D854E0E8 - be59eda60c300cf9"
+                  uuid = "D64AB678-BB98-4CF2-BD9C-A957D854E0E8 - be59eda60c300be0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -365,8 +365,8 @@
                   urlString = "file:///Users/maing/Desktop/TikTok/TikTok/Services/ExploreManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
                   offsetFromSymbolStart = "143">
                </Location>
             </Locations>
@@ -382,8 +382,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "getExploreTrendingPost()"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,13 +398,13 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "getExploreTrendingPost()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "70BF9848-E8C3-4B59-ADF2-0085F31B29C3 - 9af6e8edfaa1b778"
+                  uuid = "70BF9848-E8C3-4B59-ADF2-0085F31B29C3 - 9af6e8edfaa1ba2d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -414,12 +414,12 @@
                   urlString = "file:///Users/maing/Desktop/TikTok/TikTok/Services/ExploreManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
                   offsetFromSymbolStart = "122">
                </Location>
                <Location
-                  uuid = "70BF9848-E8C3-4B59-ADF2-0085F31B29C3 - 4faa0d7446d6df32"
+                  uuid = "70BF9848-E8C3-4B59-ADF2-0085F31B29C3 - 4faa0d7446d6d267"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -429,8 +429,8 @@
                   urlString = "file:///Users/maing/Desktop/TikTok/TikTok/Services/ExploreManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
                   offsetFromSymbolStart = "143">
                </Location>
             </Locations>
@@ -446,8 +446,8 @@
             filePath = "TikTok/Services/ExploreManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "getExplorePopularPost()"
             landmarkType = "7">
          </BreakpointContent>
@@ -594,6 +594,71 @@
             endingLineNumber = "3"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "82513CD3-AADC-4133-B1C4-29699ACFDC5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "ECEA5F6A-2374-4E06-B008-146AECED35C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "537D4326-2FC7-44E1-B8C1-D491371DBB16"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "8C711141-07A0-4EDA-804D-FF58238644BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "DF760E6F-EAF5-4C76-9E74-A47F2D398F18"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
